@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
 type Inputs = {
   name: string;
@@ -14,14 +15,28 @@ const ContactMe = (props: Props) => {
   const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData);
 
   return (
-    <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-customYellow text-2xl">
-        Contact
-      </h3>
+    <div className="h-screen relative flex flex-col text-center md:text-left  max-w-7xl px-10 justify-evenly mx-auto items-center">
+      <h3 className="sectionHeader">Contact</h3>
 
+      <div className="flex flex-col space-y-5 mt-12">
+        <div className="flex items-center space-x-5 justify-center md:justify-start">
+          <EnvelopeIcon className="h-7 w-7" />
+          <a href="mailto:m.bluth@example.com">labasfrane@gmail.com</a>
+        </div>
+        <div className="flex items-center space-x-5 justify-center md:justify-start">
+          <PhoneIcon className="h-7 w-7" />
+          <a href="tel:123-456-7890">123-456-7890</a>
+        </div>{" "}
+        <div className="flex items-center space-x-5 justify-center md:justify-start">
+          <MapPinIcon className="h-7 w-7" />
+          <a href="https://goo.gl/maps/FtDnih2E1MoqPE889">Split, Croatia</a>
+        </div>
+      </div>
+
+      {/*Contact Form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col space-y-2 w-fit mx-auto"
+        className="flex flex-col space-y-3 max-w-xl w-fit mx-auto"
       >
         <div className="flex space-x-2">
           <input

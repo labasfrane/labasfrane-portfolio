@@ -26,9 +26,9 @@ export default function Home({ socials, pageInfo, skills, projects }: Props) {
       <Head>
         <title>Frane's Portfolio</title>
       </Head>
-      <main className="bg-customPurple text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-customYellow scrollbar-thumb-customGreen">
+      <main className="bg-customDark text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-customYellow scrollbar-thumb-customGray">
         <Header socials={socials} />
-        <section id="hero" className="snap-start">
+        <section id="hero" className="snap-center">
           <Hero pageInfo={pageInfo} />
         </section>
 
@@ -36,15 +36,15 @@ export default function Home({ socials, pageInfo, skills, projects }: Props) {
           <About pageInfo={pageInfo} />
         </section>
 
-        <section id="skills" className="snap-start">
+        <section id="skills" className="snap-center">
           <Skills skills={skills} />
         </section>
 
-        <section id="projects" className="snap-start">
-          <Projects />
+        <section id="projects" className="snap-center">
+          <Projects projects={projects} />
         </section>
 
-        <section id="contact" className="snap-start">
+        <section id="contact" className="snap-center">
           <ContactsMe />
         </section>
 

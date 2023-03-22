@@ -4,14 +4,15 @@
 
 @layer components {
   .customButton {
-    @apply px-5 py-2 m-1 border border-customGreen rounded-xl uppercase text-sm tracking-wider transition-all hover:border-customGreen/50 hover:text-customGreen/50;
+    @apply px-5 py-2 m-1 border border-customGray rounded-xl uppercase text-sm tracking-wider transition-all hover:border-customTeal hover:text-customTeal;
   }
 
   .sectionHeader {
-    @apply uppercase tracking-[20px] text-customYellow text-3xl md:text-4xl;
+    @apply text-customTeal absolute top-24 uppercase tracking-[1.3rem] text-2xl md:text-3xl mr-[-1.3rem];
   }
 
+  /* mr-[-20px] */
   .customInput {
-    @apply outline-none bg-customYellow/70 rounded-sm border-b px-5 py-2 text-black border-customGreen placeholder-gray-500 transition-all focus:border-customRed focus:text-customRed hover:border-customBlue;
+    @apply outline-none px-4 py-2 bg-customGray focus:bg-customDarkGray border-b-2 rounded-sm border-customTeal/75 text-customTeal/75 focus:border-customTeal focus:text-customGray placeholder:text-customDark/50 focus:placeholder:text-customTeal/75;
   }
 }

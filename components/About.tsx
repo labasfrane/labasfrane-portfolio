@@ -13,9 +13,7 @@ const About = ({ pageInfo }: Props) => {
       transition={{ duration: 1.5 }}
       className="relative flex flex-col h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 uppercase text-customYellow text-2xl">
-        about
-      </h3>
+      <h3 className="sectionHeader">about</h3>
 
       <motion.img
         initial={{
@@ -29,10 +27,10 @@ const About = ({ pageInfo }: Props) => {
         // viewport={{ once = true }}
         src="/mountainsProfile.png"
         alt="profile-picture"
-        className="-mb-6 md:mb-0 mt-24 flex-shrink-0 w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover md:rounded-lg md:w-64 md:h-80 xl:w-[600px] xl:h-[300px]"
+        className="-mb-5 md:mb-0 mt-28 md:mt-0 flex-shrink-0 w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover md:rounded-lg md:w-64 md:h-80 xl:w-[600px] xl:h-[300px]"
       />
 
-      <div className=" px-0 md:px-10">
+      <div className="px-0 md:px-10 space-y-3 md:space-y-5">
         {" "}
         <h4 className="text-2xl font-semibold">
           Let me{" "}
@@ -41,7 +39,9 @@ const About = ({ pageInfo }: Props) => {
           </span>{" "}
           myself{" "}
         </h4>
-        <p className="text-sm">{pageInfo?.backgroundInformation}</p>
+        <p className="text-xs sm:text-sm md:text-base">
+          {pageInfo?.backgroundInformation}
+        </p>
       </div>
     </motion.div>
   );

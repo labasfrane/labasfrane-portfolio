@@ -25,8 +25,8 @@ const Hero = ({ pageInfo }: Props) => {
         height={130}
         className="relative mx-auto rounded-full object-cover"
       />
-      <div className="text-customYellow z-20">
-        <h2 className="uppercase text-sm tracking-[7px] pb-2">
+      <div className="text-customGray z-20">
+        <h2 className="text-customTeal font-semibold uppercase text-sm tracking-[0.5rem] pb-2 mr-[-0.5rem]">
           {pageInfo?.role}
         </h2>
         <h1>
@@ -36,7 +36,7 @@ const Hero = ({ pageInfo }: Props) => {
 
         {/* Navigation Links */}
 
-        <div className="pt-12">
+        <div className="pt-14">
           <Link href="#about">
             <button className="customButton">About</button>
           </Link>

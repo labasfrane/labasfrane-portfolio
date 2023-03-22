@@ -8,10 +8,10 @@ module.exports = {
   ],
   theme: {
     colors: {
-      customBlue: "#64A3F5",
-      customRed: "#FD7E89",
-      customYellow: "#FAEFA7",
-      customGreen: "#9CE08B",
+      customDark: "#222831",
+      customGray: "#EEEEEE",
+      customDarkGray: "#393E46",
+      customTeal: "#00ADB5",
       customPurple: "#3c2f6d",
       transparent: "transparent",
       current: "currentColor",

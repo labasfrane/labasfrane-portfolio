@@ -22,7 +22,7 @@ function Header({ socials }: Props) {
           <SocialIcon
             key={social._id}
             url={social.url}
-            fgColor="#FAEFA7"
+            fgColor="#EEEEEE"
             bgColor="transparent"
           />
         ))}
@@ -48,11 +48,11 @@ function Header({ socials }: Props) {
           className="cursor-pointer"
           network="email"
           url="#contact"
-          fgColor="#FAEFA7"
+          fgColor="#EEEEEE"
           bgColor="transparent"
         />
         <Link href="#contact">
-          <p className="uppercase hidden md:inline-flex text-sm text-customYellow">
+          <p className="uppercase hidden md:inline-flex text-sm text-customGray">
             contact me
           </p>
         </Link>
