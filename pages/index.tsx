@@ -12,6 +12,7 @@ import { fetchPageInfo } from "@/utils/fetchPageInfo";
 import { fetchSocials } from "@/utils/fetchSocials";
 import { fetchSkills } from "@/utils/fetchSkills";
 import { fetchProjects } from "@/utils/fetchProjects";
+import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 
 type Props = {
   pageInfo: PageInfo;
@@ -26,7 +27,7 @@ export default function Home({ socials, pageInfo, skills, projects }: Props) {
       <Head>
         <title>Frane's Portfolio</title>
       </Head>
-      <main className="bg-customDark text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-customYellow scrollbar-thumb-customGray">
+      <main className="bg-customDark text-customGray h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin sm:scrollbar scrollbar-thumb-customGray scroll-smooth scrollbar-track-customDarkGray">
         <Header socials={socials} />
         <section id="hero" className="snap-center">
           <Hero pageInfo={pageInfo} />
@@ -45,16 +46,16 @@ export default function Home({ socials, pageInfo, skills, projects }: Props) {
         </section>
 
         <section id="contact" className="snap-center">
-          <ContactsMe />
+          <ContactsMe pageInfo={pageInfo} />
         </section>
 
-        <Link href="#hero">
-          <footer className="sticky bottom-5 w-full cursor-pointer">
-            <div className="flex items-center justify-end mr-10">
-              <span>^</span>
-            </div>
-          </footer>
-        </Link>
+        <footer className="sticky w-full bottom-5">
+          <div className="flex items-center justify-end lg:justify-center lg:p-0 pr-5">
+            <Link href="#hero">
+              <ArrowUpCircleIcon className="h-10 w-10 hover:text-customTeal" />
+            </Link>
+          </div>
+        </footer>
       </main>
     </>
   );

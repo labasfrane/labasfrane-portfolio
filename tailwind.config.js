@@ -19,7 +19,15 @@ module.exports = {
       white: colors.white,
       gray: colors.gray,
     },
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        // Simple 8 row grid
+        8: "repeat(8, minmax(0, 1fr))",
+
+        // Complex site-specific row configuration
+        projectLayout: "4rem 1fr 1fr",
+      },
+    },
   },
   plugins: [require("tailwind-scrollbar")],
 };

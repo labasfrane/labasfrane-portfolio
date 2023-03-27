@@ -8,7 +8,7 @@
   }
 
   .sectionHeader {
-    @apply text-customTeal absolute top-24 uppercase tracking-[1.3rem] text-2xl md:text-3xl mr-[-1.3rem];
+    @apply text-customTeal absolute top-20 md:top-24 uppercase tracking-[1.3rem] text-2xl md:text-3xl mr-[-1.3rem];
   }
 
   /* mr-[-20px] */

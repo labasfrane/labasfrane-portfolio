@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
+import Link from "next/link";
 
 type Props = {
   projects: Project[];
@@ -8,48 +9,52 @@ type Props = {
 
 const Projects = ({ projects }: Props) => {
   return (
-    <div className="h-screen relative flex flex-col items-center justify-evenly md:flex-row text-left max-w-full mx-auto z-0 overflow-hidden">
+    <div className="h-screen relative flex flex-col items-center justify-evenly text-left max-w-full mx-auto z-0 overflow-hidden">
+      {/* overflow-hidden missing on top div */}
       <h3 className="sectionHeader">Projects</h3>
 
-      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-customYellow scrollbar-thumb-customGreen">
+      <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin sm:scrollbar scrollbar-thumb-customGray scroll-smooth scrollbar-track-customDarkGray mt-7">
         {/* Project data */}
         {projects.map((project, i) => (
-          <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
-            <Image
-              src={urlFor(project?.image)?.url()}
-              alt={project?._id}
-              width={450}
-              height={400}
-              className="object-contain"
-            />
-
-            <div className="space-y-5 px-0 md:px-10 max-w-7xl border border-customRed">
-              <h4 className="text-4xl font-semibold text-center">
+          <div className="w-screen flex-shrink-0 snap-center flex flex-col items-center justify-center px-5 sm:px-10 md:p-44 h-screen space-y-5 sm:space-y-10">
+            <Link href={project?.linkToBuild}>
+              <Image
+                src={urlFor(project?.image)?.url()}
+                alt={project?._id}
+                width={450}
+                height={300}
+                className="object-fill h-44 w-80 md:h-full md:w-full border-customTeal border-2 rounded-sm"
+              />
+            </Link>
+            <div className="grid grid-rows-projectLayout gap-x-5 space-x-5 md:space-x-0 space-y-3 max-w-6xl">
+              <h4 className="font-semibold text-center text-lg md:text-2xl md:col-span-3 m-auto">
                 Project {i + 1} of {projects.length}: {project?.title}
               </h4>
+
+              {/* Summary */}
+              <p className="text-center md:text-left text-sm sm:text-base max-h-24 md:row-span-2">
+                {project?.summary}
+              </p>
               {/* Techstack*/}
-              <div className="flex justify-center items-center space-x-2">
+              <div className="flex justify-center items-center gap-3 md:row-span-2">
                 {project?.technologies.map((technology) => (
                   <Image
                     src={urlFor(technology?.image)?.url()}
                     alt={technology?._id}
                     width={120}
                     height={120}
-                    className="object-none w-14 h-14"
+                    className="object-none w-10 h-10"
                   />
                 ))}
               </div>
-
-              {/* Summary */}
-              <p className="text-lg text-center md:text-left">
-                {project?.summary}
-              </p>
             </div>
+
+            {/* <div className="space-y-3 px-0 md:px-10  border-2 border-black mt-auto "></div> */}
           </div>
         ))}
       </div>
 
-      <div className="w-full absolute top-[30%] left-0 h-[500px] bg-customPurple/70 -skew-y-12"></div>
+      {/* <div className="w-full absolute top-1/2 left-0 h-[600px] bg-customTeal/50 "></div> */}
     </div>
   );
 };

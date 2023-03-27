@@ -12,12 +12,12 @@ function Skill({ skill, delay }: Props) {
   return (
     <motion.div
       initial={{
-        y: -300,
+        x: -300,
         opacity: 0,
       }}
-      transition={{ duration: delay ? 1 : 1.5 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      className="group relative flex cursor-pointer"
+      transition={{ duration: delay ? 1.8 : 1 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      className="group relative flex cursor-pointer "
     >
       <Image
         src={urlFor(skill?.image)?.url()}
