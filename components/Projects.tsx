@@ -15,7 +15,7 @@ const Projects = ({ projects }: Props) => {
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin sm:scrollbar scrollbar-thumb-customGray scroll-smooth scrollbar-track-customDarkGray mt-7">
         {/* Project data */}
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <div className="w-screen flex-shrink-0 snap-center flex flex-col items-center justify-center px-5 sm:px-10 md:p-44 h-screen space-y-5 sm:space-y-10">
             <Link href={project?.linkToBuild}>
               <Image
@@ -28,7 +28,7 @@ const Projects = ({ projects }: Props) => {
             </Link>
             <div className="grid grid-rows-projectLayout gap-x-5 space-x-5 md:space-x-0 space-y-3 max-w-6xl">
               <h4 className="font-semibold text-center text-lg md:text-2xl md:col-span-3 m-auto">
-                Project {i + 1} of {projects.length}: {project?.title}
+                Project {i + 1} of {projects?.length}: {project?.title}
               </h4>
 
               {/* Summary */}

@@ -1,5 +1,6 @@
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+import InputField from "./InputField";
 
 type Inputs = {
   name: string;
@@ -9,7 +10,13 @@ type Inputs = {
 };
 
 const ContactForm = () => {
-  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const methods = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<Inputs>();
 
   const sendEmail = async (formData: any) => {
     await emailjs
@@ -25,39 +32,51 @@ const ContactForm = () => {
 
     reset();
   };
+  console.log(errors);
 
   return (
-    <form
-      onSubmit={handleSubmit(sendEmail)}
-      className="grid grid-cols-2 grid-rows-5 sm:grid-rows-4 gap-2 mx-4"
-    >
-      <input
-        {...register("name")}
-        placeholder="Name"
-        className="customInput col-span-2 sm:col-span-1"
-        type="text"
-      />
-      <input
-        {...register("email")}
-        placeholder="Email "
-        className="customInput col-span-2 sm:col-span-1"
-        type="text"
-      />
-
-      <input
-        {...register("subject")}
-        placeholder="Subject"
-        className="customInput col-span-2"
-        type="text"
-      />
-
-      <textarea
-        {...register("message")}
-        placeholder="Message"
-        className="customInput col-span-2"
-      />
-      <button className="col-span-2">Submit</button>
-    </form>
+    <FormProvider {...methods}>
+      <form
+        onSubmit={methods.handleSubmit(sendEmail)}
+        className="grid grid-cols-2 grid-rows-5 sm:grid-rows-4 gap-2 mx-4"
+      >
+        <InputField
+          registerName="name"
+          id="name"
+          type="text"
+          placeholder="Name"
+          isRequired
+          errMessage="Please enter your Name"
+          hasSpanTwo={false}
+        />
+        <InputField
+          registerName="email"
+          id="email"
+          type="text"
+          placeholder="Email"
+          isRequired
+          errMessage="Please enter your Email"
+          hasSpanTwo={false}
+        />
+        <InputField
+          registerName="subject"
+          id="subject"
+          type="text"
+          placeholder="Subject"
+          isRequired
+          errMessage="Put in subject"
+          hasSpanTwo
+        />
+        <textarea
+          {...register("message")}
+          placeholder="Message"
+          className="customInput col-span-2"
+        />
+        <button className="col-span-2 border rounded-sm bg-customDarkGray/70">
+          Submit
+        </button>
+      </form>
+    </FormProvider>
   );
 };
 

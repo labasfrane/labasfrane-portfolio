@@ -37,39 +37,6 @@ const ContactMe = ({ pageInfo }: Props) => {
       </div>
 
       {/*Contact Form */}
-      {/* <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col space-y-3 max-w-xl w-fit mx-auto"
-      >
-        <div className="flex space-x-2">
-          <input
-            {...register("name")}
-            placeholder="Name"
-            className="customInput"
-            type="text"
-          />
-          <input
-            {...register("email")}
-            placeholder="Email"
-            className="customInput"
-            type="text"
-          />
-        </div>
-
-        <input
-          {...register("subject")}
-          placeholder="Subject"
-          className="customInput"
-          type="text"
-        />
-
-        <textarea
-          {...register("message")}
-          placeholder="Message"
-          className="customInput"
-        />
-        <button>Submit</button>
-      </form> */}
       <ContactForm />
     </div>
   );
