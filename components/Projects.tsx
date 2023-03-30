@@ -41,6 +41,7 @@ const Projects = ({ projects }: Props) => {
               <div className="flex justify-center items-center gap-3 md:row-span-2">
                 {project?.technologies.map((technology) => (
                   <Image
+                    key={technology?._id}
                     src={urlFor(technology?.image)?.url()}
                     alt={technology?._id}
                     width={120}
