@@ -1,5 +1,4 @@
-import { title } from 'process'
-import {defineField, defineType} from 'sanity'
+import {defineType} from 'sanity'
 
 export default defineType({
   name: 'social',
@@ -13,9 +12,9 @@ export default defineType({
       type: 'string',
     },
     {
-      name:'url',
-      title:'Url',
-      type:'url',
-    },   
+      name: 'url',
+      title: 'Url',
+      type: 'url',
+    },
   ],
 })

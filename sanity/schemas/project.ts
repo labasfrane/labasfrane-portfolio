@@ -1,5 +1,4 @@
-import { title } from 'process'
-import {defineField, defineType} from 'sanity'
+import {defineType} from 'sanity'
 
 export default defineType({
   name: 'project',
@@ -13,25 +12,26 @@ export default defineType({
       type: 'string',
     },
     {
-      name:'image',
-      title:'Image of Project',
-      type:'image',
+      name: 'image',
+      title: 'Image of Project',
+      type: 'image',
       options: {
         hotspot: true,
-      }
+      },
     },
     {
-      name:'summary',
+      name: 'summary',
       title: 'Summary',
-      type:'text',
+      type: 'text',
     },
     {
-      name:'technologies',
-      title:'Technologies',
-      type:'array',
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'array',
       of: [
         {
-          type: 'reference', to: {type: 'skill'}
+          type: 'reference',
+          to: {type: 'skill'},
         },
       ],
     },

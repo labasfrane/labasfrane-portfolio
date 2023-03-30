@@ -1,5 +1,4 @@
-import { title } from 'process'
-import {defineField, defineType} from 'sanity'
+import {defineType} from 'sanity'
 
 export default defineType({
   name: 'skill',
@@ -13,20 +12,19 @@ export default defineType({
       type: 'string',
     },
     {
-      name:'progress',
-      title:'Progress',
-      type:'number',
+      name: 'progress',
+      title: 'Progress',
+      type: 'number',
       description: 'Progress of skill from 0 to 100%',
       validation: (Rule) => Rule.min(0).max(100),
     },
     {
-      name:'image',
+      name: 'image',
       title: 'Image',
-      type:'image',
+      type: 'image',
       options: {
         hotspot: true,
-      }
+      },
     },
-   
   ],
 })
