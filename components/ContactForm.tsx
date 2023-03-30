@@ -12,10 +12,7 @@ type Inputs = {
 const ContactForm = () => {
   const methods = useForm();
   const {
-    register,
-    handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<Inputs>();
 
   const sendEmail = async (formData: any) => {
@@ -30,15 +27,14 @@ const ContactForm = () => {
         }
       );
 
-    reset();
+    methods.reset();
   };
-  console.log(errors);
 
   return (
     <FormProvider {...methods}>
       <form
         onSubmit={methods.handleSubmit(sendEmail)}
-        className="grid grid-cols-2 grid-rows-5 sm:grid-rows-4 gap-2 mx-4"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 sm:gap-x-3"
       >
         <InputField
           registerName="name"
@@ -47,7 +43,6 @@ const ContactForm = () => {
           placeholder="Name"
           isRequired
           errMessage="Please enter your Name"
-          hasSpanTwo={false}
         />
         <InputField
           registerName="email"
@@ -56,7 +51,6 @@ const ContactForm = () => {
           placeholder="Email"
           isRequired
           errMessage="Please enter your Email"
-          hasSpanTwo={false}
         />
         <InputField
           registerName="subject"
@@ -65,12 +59,16 @@ const ContactForm = () => {
           placeholder="Subject"
           isRequired
           errMessage="Put in subject"
-          hasSpanTwo
+          isFullSpan
         />
-        <textarea
-          {...register("message")}
+        <InputField
+          registerName="message"
+          id="message"
+          type="textarea"
           placeholder="Message"
-          className="customInput col-span-2"
+          isFullSpan
+          isRequired
+          isTextArea
         />
         <button className="col-span-2 border rounded-sm bg-customDarkGray/70">
           Submit

@@ -19,24 +19,31 @@ const InputField = ({
   id,
   type,
   placeholder,
-  errMessage,
+  errMessage = "Please fill out this field.",
   isRequired,
-  hasSpanTwo,
+  isFullSpan = false,
+  isTextArea = false,
 }) => {
   const {
     register,
     formState: { errors },
   } = useFormContext();
 
-  return (
-    <label
-      className={
-        hasSpanTwo
-          ? "grid grid-rows-2 col-span-2"
-          : "grid grid-rows-2 col-span-1"
-      }
-      htmlFor={id}
-    >
+  const inputContent = () => {
+    if (isTextArea) {
+      return (
+        <textarea
+          name={registerName}
+          id={id}
+          placeholder={placeholder}
+          className="customInput resize-none"
+          {...register(`${registerName}`, {
+            required: { value: { isRequired }, message: `${errMessage}` },
+          })}
+        />
+      );
+    }
+    return (
       <input
         id={id}
         type={type}
@@ -46,6 +53,19 @@ const InputField = ({
           required: { value: { isRequired }, message: `${errMessage}` },
         })}
       />
+    );
+  };
+
+  return (
+    <label
+      className={
+        isFullSpan
+          ? "grid grid-rows-2 col-span-2"
+          : "grid grid-rows-2 col-span-2 sm:col-span-1"
+      }
+      htmlFor={id}
+    >
+      {inputContent()}
       <ErrorMessage
         errors={errors}
         name={registerName}
