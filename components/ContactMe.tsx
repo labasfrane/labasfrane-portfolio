@@ -1,23 +1,12 @@
-import { useForm, SubmitHandler } from "react-hook-form";
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import { PageInfo } from "@/typings";
 import ContactForm from "./ContactForm";
-
-type Inputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
 
 type Props = {
   pageInfo: PageInfo;
 };
 
 const ContactMe = ({ pageInfo }: Props) => {
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData);
-
   return (
     <div className="h-screen relative flex flex-col text-center max-w-7xl justify-evenly mx-auto items-center">
       <h3 className="sectionHeader">Contact</h3>
@@ -36,7 +25,6 @@ const ContactMe = ({ pageInfo }: Props) => {
         </div>
       </div>
 
-      {/*Contact Form */}
       <ContactForm />
     </div>
   );

@@ -10,7 +10,6 @@ type Props = {
 const Projects = ({ projects }: Props) => {
   return (
     <div className="h-screen relative flex flex-col items-center justify-evenly text-left max-w-full mx-auto z-0 overflow-hidden">
-      {/* overflow-hidden missing on top div */}
       <h3 className="sectionHeader">Projects</h3>
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin sm:scrollbar scrollbar-thumb-customGray scroll-smooth scrollbar-track-customDarkGray mt-7">
@@ -48,13 +47,11 @@ const Projects = ({ projects }: Props) => {
                 ))}
               </div>
             </div>
-
-            {/* <div className="space-y-3 px-0 md:px-10  border-2 border-black mt-auto "></div> */}
           </div>
         ))}
       </div>
 
-      {/* <div className="w-full absolute top-1/2 left-0 h-[600px] bg-customTeal/50 "></div> */}
+      <div className="w-full absolute top-1/2 left-0 h-[600px] bg-customTeal/50 "></div>
     </div>
   );
 };
