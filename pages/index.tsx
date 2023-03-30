@@ -25,7 +25,7 @@ export default function Home({ socials, pageInfo, skills, projects }: Props) {
   return (
     <>
       <Head>
-        <title>Frane's Portfolio</title>
+        <title>{pageInfo?.name} Portfolio</title>
       </Head>
       <main className="bg-customDark text-customGray h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin sm:scrollbar scrollbar-thumb-customGray scroll-smooth scrollbar-track-customDarkGray">
         <Header socials={socials} />

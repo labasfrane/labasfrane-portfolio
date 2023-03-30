@@ -15,7 +15,10 @@ const Projects = ({ projects }: Props) => {
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin sm:scrollbar scrollbar-thumb-customGray scroll-smooth scrollbar-track-customDarkGray mt-7">
         {/* Project data */}
         {projects?.map((project, i) => (
-          <div className="w-screen flex-shrink-0 snap-center flex flex-col items-center justify-center px-5 sm:px-10 md:p-44 h-screen space-y-5 sm:space-y-10">
+          <div
+            key={project?._id}
+            className="w-screen flex-shrink-0 snap-center flex flex-col items-center justify-center px-5 sm:px-10 md:p-44 h-screen space-y-5 sm:space-y-10"
+          >
             <Link href={project?.linkToBuild}>
               <Image
                 src={urlFor(project?.image)?.url()}
